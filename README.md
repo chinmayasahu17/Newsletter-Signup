@@ -4,5 +4,4 @@ mailchimp's server and can be used to send email to the users later.
 
 # My library [https://newslettersignup-rqp2.onrender.com)](https://newslettersignup-rqp2.onrender.com)
 
-#API
-https://mailchimp.com/integrations/?gclsrc=ds&gclsrc=ds
+# API [https://mailchimp.com/integrations/?gclsrc=ds&gclsrc=ds]
