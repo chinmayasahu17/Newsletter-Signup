@@ -1,4 +1,5 @@
 require("dotenv").config()
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -9,7 +10,10 @@ app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended : true}))
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/signup.html")
+    res.sendFile(__dirname + "/signup.html");
+    //res.send(process.env.API_KEY)
+    
+    
 })
 app.post("/",function(req, res){
     const firstName = req.body.fName;
@@ -31,9 +35,10 @@ app.post("/",function(req, res){
 
     const jsonData = JSON.stringify(data);
     const url = "https://us21.api.mailchimp.com/3.0/lists/31ddaaf2af"
+    
     const options ={
         method : "POST",
-        auth : "chinmay:process.env.API_KEY"
+        auth : "chinmay: process.env.API_KEY"
     }
     const request = https.request(url, options, function(response){
         if(response.statusCode == 200){
@@ -41,6 +46,7 @@ app.post("/",function(req, res){
         }
         else{
             res.sendFile(__dirname + "/failure.html")
+            
         }
 
         response.on("data", function(data){
@@ -61,5 +67,5 @@ app.listen(process.env.POST || 3000, function(){
     console.log("server running at port 3000");
 })
 
-//apikey:b9ae38d34424a4af956635245f56b150-us21
+//apikey:62a600985fd9fa1f647972ffb447dcb6-us21
 //listid:31ddaaf2af.
