@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
@@ -32,7 +33,7 @@ app.post("/",function(req, res){
     const url = "https://us21.api.mailchimp.com/3.0/lists/31ddaaf2af"
     const options ={
         method : "POST",
-        auth : "chinmay:7044da9fc805cc0049ef3daee02e9561-us21"
+        auth : "chinmay:process.env.API_KEY"
     }
     const request = https.request(url, options, function(response){
         if(response.statusCode == 200){
